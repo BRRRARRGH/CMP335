@@ -1,0 +1,54 @@
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title> Responsive Page</title>
+        <link rel="stylesheet" href="page.css">
+        <link rel="icon" type="image/x-icon" href="image.png">
+    </head>
+    <body>
+        <div class="flex-box">
+            <div class="flex-box-column">
+                <h3> LINK</h3>
+                <a href="https://www.w3schools.com" title="Link" target="_blank">
+                Link to W3 Schools!
+                </a>
+            </div>
+            <div class="flex-box-column">
+                <h3> Photo!</h3>
+                <img src="image.png" alt="TJ T-posing" style="max-width: 200px;">
+                
+            </div>
+            <div class="flex-box-column">
+                <h3>Video!</h3>
+                <video style="max-width: 200px;" controls>
+                    <source src="IMG_3586.mov">
+                </video>>  
+            </div>
+            <div class="flex-box-column">
+                <h3>API!</h3>
+                <button onclick="myFunction()">Click here!</button>
+                <p id="locationfield"></p>
+            </div>
+        </div>
+        <script>
+            const x = document.getElementById("locationfield");
+            
+            function myFunction()
+            {
+                
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(success);
+                } else { 
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+                
+
+                function success(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude + 
+                "<br>Longitude: " + position.coords.longitude;
+                }
+            }
+        </script>
+            </div>
+        </div>
+    </body>

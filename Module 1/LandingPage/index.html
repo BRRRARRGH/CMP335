@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title> Game Landing Page</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="photos/Flav.png">
+    </head>
+    <body>
+
+
+
+        <div class="head-container">
+            <div class="head-column-left">
+                <img class="tablinks" onClick="openTab(event, 'Home')" id="defaultOpen" src="photos/Flav.png" alt="Controllers"  style="width:75px;height:75px">
+            </div>
+            <div class="head-column-right">
+                <p>Log In</p>
+            </div>
+        </div>
+
+
+
+
+        <ul>
+            <li><p class="tablinks" onClick="openTab(event, 'Genres')">Genres</p></li>
+            <li><p class="tablinks" onClick="openTab(event, 'Games')">Games</p></li>
+            <li><p class="tablinks" onClick="openTab(event, 'Consoles')">Consoles</p></li>
+        </ul>
+
+
+
+        <div id="Home" class="tabcontent">
+            <div class="IFrameBox">
+                <div class="IFrameBoxLeft">
+                    <h1>
+                        Welcome to Videogames!
+                    </h1>
+                    <h2>
+                        Buy Games Here!
+                    </h2>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/qiNv3qv-YbU?si=-_tSqiPHKL1pzkG2" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
+                </div>  
+                <div class="IFrameBoxRight">
+                    <h1> About Us!</h1>
+                    <p> We are a company that puts all your favorite games in one place!</p>
+                    <p> We are a young group that aims to be the best the industry has to offer!</p>
+                </div>
+            </div>
+            <div class="flex-box">
+                <div class="flex-box-column">
+                    <h3> Current Most Popular</h3>
+                    <a href="https://www.w3schools.com" title="CS" target="_blank">
+                    <img src="photos/CS.jpg" alt="CS-2 image" class="images">
+                    </a>
+                </div>
+                <div class="flex-box-column">
+                    <h3> Up and Coming</h3>
+                    <a href="https://www.w3schools.com" title="Silksong" target="_blank">
+                    <img src="photos/silksong.jpg" alt="Silksong image" class="images">
+                    </a>
+                </div>
+                <div class="flex-box-column">
+                    <h3>First Person Shooter</h3>
+                    <a href="https://www.w3schools.com" title="Valorant" target="_blank">
+                    <img src="photos/valo.jpg" alt="Valorant image" class="images">
+                    </a>
+                </div>
+                <div class="flex-box-column">
+                    <h3>Indie Game</h3>
+                    <a href="https://www.w3schools.com" title="Undertale" target="_blank">
+                    <img src="photos/undertale.png" alt="Undertale image" class="images">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="Genres" class="tabcontent">
+            <p>Genres</p>
+        </div>
+
+
+
+
+
+
+        <div id="Games"class="tabcontent">
+            <p>Games</p>
+        </div>
+
+
+
+
+
+        <div id="Consoles" class="tabcontent">
+            <h2>Consoles</h2>
+        </div>
+        
+
+
+    </body>
+
+
+
+    <footer>
+        <div class="foot-container">
+            <div class="foot-container-column">
+                <h2>Contact us!</h2>
+                <h3> Email: IDEK@gmail.com</h3>
+                <h3> Phone: (123) 456-7890</h3>
+            </div>
+            <div class="foot-container-column">
+                <table style="width:100%">
+                    <tr>
+                        <th> Coding</th>
+                        <th> Art</th>
+                    </tr>
+                    <tr>
+                        <td> TJ Johnson</td>>
+                        <td> Alec Engebretson</td>>
+                    </tr>
+                    <tr>
+                        <td> Johang Hernandez</td>>
+                        <td> </td>>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+    </script>
+</html>

@@ -1,0 +1,47 @@
+body
+{
+    text-align: center;
+    background-color: navy;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-box
+{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.flex-box-column
+{
+    background-color: lightblue;
+    flex: 25%;
+}
+
+@media screen and (max-width:992px)
+{
+
+    .flex-box
+    {
+        flex-wrap: wrap;
+    }
+    
+    .flex-box-column
+    {
+        flex: 50%;
+    }
+
+}
+
+
+@media screen and (max-width: 700px)
+{
+
+    .flex-box
+    {
+        flex-direction: column;
+    }
+
+}

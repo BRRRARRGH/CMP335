@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Games Survey</title>
+  <link rel="stylesheet" href="survey.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Video Games & Favorites Survey</h1>
+    <p>Tell a little about your favorite video games. This survey includes required fields and will show a message if a required text box is missing.</p>
+
+    <form id="gameSurvey" novalidate>
+      <!-- Required text field -->
+      <div class="form-group">
+        <label for="playerName">Your name <span class="required">*</span></label>
+        <input type="text" id="playerName" name="playerName" placeholder="Enter your name">
+        <div class="error" id="nameError" aria-live="polite"></div>
+      </div>
+
+      <!-- Dropdown (required selection) -->
+      <div class="form-group">
+        <label for="favoriteConsole">Favorite gaming platform <span class="required">*</span></label>
+        <select id="favoriteConsole" name="favoriteConsole" required>
+          <option value="">-- Choose a platform --</option>
+          <option>PC</option>
+          <option>PlayStation</option>
+          <option>Xbox</option>
+          <option>Nintendo Switch</option>
+          <option>Mobile</option>
+        </select>
+      </div>
+
+      <!-- Radio buttons -->
+      <fieldset class="form-group">
+        <legend>Preferred game genre (pick one)</legend>
+        <label><input type="radio" name="genre" value="Action" checked> Action</label>
+        <label><input type="radio" name="genre" value="Adventure"> Adventure</label>
+        <label><input type="radio" name="genre" value="RPG"> RPG</label>
+        <label><input type="radio" name="genre" value="Strategy"> Strategy</label>
+      </fieldset>
+
+      <!-- Checkboxes -->
+      <fieldset class="form-group">
+        <legend>Which features do you enjoy? (check all that apply)</legend>
+        <label><input type="checkbox" name="features" value="Multiplayer"> Multiplayer</label>
+        <label><input type="checkbox" name="features" value="Singleplayer"> Singleplayer</label>
+        <label><input type="checkbox" name="features" value="Story"> Strong Story</label>
+        <label><input type="checkbox" name="features" value="Graphics"> Stunning Graphics</label>
+      </fieldset>
+
+      <!-- Textarea -->
+      <div class="form-group">
+        <label for="favoriteGames">List up to 3 favorite games and why you like them</label>
+        <textarea id="favoriteGames" name="favoriteGames" rows="5" placeholder="1. ...\n2. ...\n3. ..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+        <div class="error" id="captchaError" aria-live="polite"></div>
+      </div>
+      <div class="buttons">
+        <button type="submit">Submit Survey</button>
+        <button type="reset" class="secondary">Reset</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    // Custom validation for required text box and alert on success, with reCAPTCHA check
+    (function() {
+      const form = document.getElementById('gameSurvey');
+      const nameInput = document.getElementById('playerName');
+      const nameError = document.getElementById('nameError');
+      const captchaError = document.getElementById('captchaError');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let valid = true;
+        nameError.textContent = '';
+        captchaError.textContent = '';
+
+        // Validate name text box (require at least one non-whitespace character)
+        if (!nameInput.value || !nameInput.value.trim()) {
+          nameError.textContent = 'Please enter your name.';
+          nameInput.focus();
+          valid = false;
+        }
+
+        // Validate dropdown selection
+        const consoleSelect = document.getElementById('favoriteConsole');
+        if (!consoleSelect.value) {
+          consoleSelect.focus();
+          valid = false;
+        }
+
+        // Validate reCAPTCHA (ensure grecaptcha exists and has a response)
+        var captchaResponse = '';
+        try {
+          if (typeof grecaptcha !== 'undefined') {
+            captchaResponse = grecaptcha.getResponse();
+          }
+        } catch (err) {
+          captchaResponse = '';
+        }
+
+        if (!captchaResponse) {
+          captchaError.textContent = 'Please verify you are not a robot.';
+          // focus the widget by moving to the frame if possible (best-effort)
+          valid = false;
+        }
+
+        if (!valid) return;
+
+        // If validation passes, show success alert (Exceptional requirement)
+        alert('Survey submitted successfully! Thank you for your responses.');
+        form.reset();
+        // reset grecaptcha if available
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.reset) grecaptcha.reset();
+      });
+    })();
+  </script>
+</body>
+</html>

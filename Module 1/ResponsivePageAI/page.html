@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Flexbox Example</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+    <main class="page">
+        <h1>Responsive Flexbox Example</h1>
+
+        <section class="flex-container" aria-label="Responsive design example list">
+            <article class="cell">
+                <h2>Link</h2>
+                <p>
+                    Visit the
+                    <a href="https://www.w3schools.com/html/" target="_blank" rel="noreferrer">HTML tutorial</a>
+                    to learn more about web design and front-end development.
+                </p>
+            </article>
+
+            <article class="cell">
+                <h2>Image</h2>
+                <img src="../ReponsivePage/image.png" alt="A sample image from the responsive page project">
+            </article>
+
+            <article class="cell">
+                <h2>Video</h2>
+                <video controls preload="metadata" src="../ReponsivePage/IMG_3586.mov">
+                    Your browser does not support the video tag. If the video does not play, convert the file to an MP4 format for better browser compatibility.
+                </video>
+            </article>
+
+            <article class="cell">
+                <h2>Geolocation</h2>
+                <button type="button" onclick="getLocation()">Show My Location</button>
+                <p id="locationOutput">Location information will appear here.</p>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        function getLocation() {
+            const output = document.getElementById("locationOutput");
+
+            if (!navigator.geolocation) {
+                output.textContent = "Geolocation is not supported by this browser.";
+                return;
+            }
+
+            output.textContent = "Finding your location...";
+
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    output.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+                },
+                function (error) {
+                    output.textContent = "Unable to get your location: " + error.message;
+                }
+            );
+        }
+    </script>
+</body>
+</html>
