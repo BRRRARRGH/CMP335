@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Central Tendancy Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="code.js"></script>
+</head>
+
+<body>
+    <h1>Central Tendancy Calculator</h1>
+    <div class="flex-container">
+        <form class="flex-column" id="firstForm" action="">
+            <h2>Form to Obtain a word and place it in a list</h2>
+            <label for="minValue"> Minimum value of numbers:</label>
+            <input type="text" id="minValue" name="minValue" required /><br />
+            <label for="maxValue"> Maximum value of numbers:</label>
+            <input type="text" id="maxValue" name="maxValue" required /><br />
+            <label for="number"> Number to Add:</label>
+            <input type="text" id="number" name="number" required /><br />
+            
+            <input type="button" value="submit" onclick="validateAndAdd()">
+            <input type="button" value="Clear Number List" onclick="clearList()">
+        </form>
+
+        <div class="flex-column">
+            <h2>List</h2> <br />
+            <p id="List-Text"></p>
+        </div>
+
+        <div class="flex-column">
+            <h2>List 2</h2> <br />
+            <p id="mean">mean:</p>
+            <p id="median">median:</p>
+            <p id="mode">mode:</p>
+        </div>
+    </div>
+</body>
+
+</html>
