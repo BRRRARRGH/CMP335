@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" /> <!--Char set-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/><!-- Viewport -->
+    <title>Ceasar Cipher</title> <!-- Name for the page (Shows on the top tab) -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS -->
+    <script src="code.js"></script> <!-- Link to the Code-->
+</head>
+
+<body>
+    <h1>Ceasar Cipher</h1> <!-- Title -->
+    <div class="flex-container"> <!-- Flexbox Start -->
+        <form class="flex-column">
+            <h2>Obtain Info!</h2>
+                <select id="meat"> <!-- Meat type selection -->
+                    <option value="all-meat">All Meat</option>
+                    <option value="meat-and-filler">Meat & Filler</option>
+                </select> <br />
+
+                <select id="paras"> <!-- Num Paragraph selection -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select> <br />
+
+                 <select id="start"> <!-- Paragraph start selection -->
+                    <option value="1">Start para with "Bacon ipsum dolor sit amet</option>
+                    <option value="0">Don't start para with "Bacon ipsum dolor sit amet</option>
+                </select> <br />
+
+                <input type="button" value="submit" onclick="FetchData()"> <!-- Button that calls the CSS -->
+        </form>
+        <div class="flex-column"> <!-- Raw Data column-->
+            <h2>Raw Data</h2> 
+            <p id="rawData"></p>
+        </div>
+
+        <div class="flex-column"> <!-- Data into strings -->
+            <h2>Formatted into Paragraphs</h2> 
+            <p id="formattedData"></p>
+        </div>
+
+        <div class="flex-column"> <!-- Put through cipher 1 -->
+            <h2>Through Cipher 1</h2> 
+            <p id="cipherText1"></p>
+        </div>
+
+        <div class="flex-column"> <!-- Put through cipher 2 -->
+            <h2>Through Cipher 2</h2> 
+            <p id="cipherText2"></p>
+        </div>
+
+    </div> <!-- Flexbox end -->
+</body> <!-- Body end -->
+
+</html> <!-- HTML end -->

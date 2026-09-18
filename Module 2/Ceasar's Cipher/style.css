@@ -1,0 +1,42 @@
+body /* body styling */
+{
+    text-align: center;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    color: black;
+}
+
+
+
+.flex-container /* container styling */
+{
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 10px;
+}
+
+.flex-column{ /* Width of each column */
+  flex: 20%;
+}
+
+@media screen and (max-width: 1100px) /* Adjusts based upon screen size */
+{
+    .flex-container
+    {
+        flex-wrap: wrap;
+    }
+
+    .flex-column
+    {
+        flex: 33.3%;
+    }
+}
+
+@media screen and (max-width: 850px) /* Adjusts based upon screen size */
+{
+    .flex-container
+    {
+        flex-direction: column;
+    }
+}
