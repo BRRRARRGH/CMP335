@@ -1,0 +1,97 @@
+<!-- Title saying TJ's awesome rock collection 
+
+// Title saying TJ's awesome rock collection
+
+//Add a rock to the collection button!
+  //Three drop down menus -- > Type of rock, color of rock, and count of rocks
+  //After, user can press "Add Rock", and it will either A - create a new collection of that type and color of rock, or 
+  //B - if that collection already exists, it will add 1 to the number of rocks in that collection
+
+//Types of rocks: Igneous, Sedimentary, Metamorphic
+//Colors of rocks: Red, Orange, Blue, Green, Yellow, Purple, Pink, White, Black, Gray
+//Number of rocks that can add up to 10.
+
+// flex box container
+
+// Flex boxes for each manga item
+
+//Each box has a color, type, and number of rocks in the collection
+//Under these, it has 3 buttons
+  // +, which adds 1 rock to the collection
+  // -, which removes 1 rock from the collection - if - gets the rock collection to 0, it will remove the entire collection from the page
+  // delete, which removes the entire collection from the page
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Collection</title>
+    <link rel="stylesheet" href="rock.css" />
+</head>
+<body>
+    <h1>Rock Collection</h1>
+    <h3>Add Rocks to the Collection</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+          <div>
+            <label for="Color"> What color is the rock?</label> <br />
+            <select id="Color" name="Color" class="Dropdown" required>
+                <option value="Red">Red</option>
+                <option value="Orange">Orange</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Purple">Purple</option>
+                <option value="Pink">Pink</option>
+                <option value="White">White</option>
+                <option value="Black">Black</option>
+                <option value="Gray">Gray</option>
+            </select> <br />
+        </div>
+        <div>
+            <label for="Type"> What is the Type of Rock?</label> <br />
+            <select id="Type" name="Type" class="Dropdown" required>
+                <option value="Igneous">Igneous</option>
+                <option value="Sedimentary">Sedimentary</option>
+                <option value="Metamorphic">Metamorphic</option>
+            </select> <br />
+        </div>
+        <div>
+            <label for="Number"> How many rocks do you have?</label> <br />
+            <select id="Number" name="Number" class="Dropdown" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select> <br />
+        </div>
+        <input type="submit" value="Add">
+    </form>
+
+    <p id="counter"></p>
+
+    <table>
+        <tr>
+            <th>Color</th>
+            <th>Type</th>
+            <th>Count</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="rockbody"></tbody>
+    </table>
+
+    <script src="rock.js" asp-append-version="true"></script>
+    <script>
+        getItems();
+    </script>
+</body>
+</html>
