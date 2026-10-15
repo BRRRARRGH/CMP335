@@ -1,27 +1,27 @@
-const url = 'http://localhost:3000/api/rocks';
-let rocks = [];
+const url = 'http://localhost:3000/api/rocks'; //base URL
+let rocks = []; //obj array
 
-function getItems() {
+function getItems() { //function to get rocks from the server
   fetch(url)
     .then(response => response.json())
     .then(data => _displayItems(data))
     .catch(error => console.error('Unable to get items.', error));
 }
 
-function addItem() {
+function addItem() { //function to add a rock
   const item = {
     color: document.getElementById('Color').value,
     type: document.getElementById('Type').value,
     count: parseInt(document.getElementById('Number').value)
-  };
+  }; //parameters for rock obj
 
-  postUrl = `${url}?color=${item.color}&type=${item.type}&count=${item.count}`;
-  fetch(postUrl, {
+  postUrl = `${url}?color=${item.color}&type=${item.type}&count=${item.count}`; //adjusts URL for query paramaters
+  fetch(postUrl, { //fetches with post method and query parameters
     method: 'POST'
   })
     .then(response => response.json())
     .then(() => {
-      getItems();
+      getItems();//calls get items, then clears all elements in html
       document.getElementById('Color').value = '';
       document.getElementById('Type').value = '';
       document.getElementById('Number').value = '';
@@ -29,7 +29,7 @@ function addItem() {
     .catch(error => console.error('Unable to add item.', error));
 }
 
-function deleteItem(id) {
+function deleteItem(id) { //function to delete an item with id
     console.log(`Deleting item with ID: ${id}`);
   fetch(`${url}/${id}`, {
     method: 'DELETE'
@@ -38,30 +38,7 @@ function deleteItem(id) {
   .catch(error => console.error('Unable to delete item.', error));
 }
 
-function updateItem() {
-  const item = {
-    id: parseInt(itemId, 10),
-    isComplete: document.getElementById('edit-isComplete').checked,
-    name: document.getElementById('edit-name').value.trim()
-  };
-
-  fetch(`${url}/${itemId}`, {
-    method: 'PUT',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(item)
-  })
-  .then(() => getItems())
-  .catch(error => console.error('Unable to update item.', error));
-
-  closeInput();
-
-  return false;
-}
-
-function addNumber(id) 
+function addNumber(id) //function to call put function to add a rock count to an existing rock
 {
 console.log(`Adding item with ID: ${id}`);
   fetch(`${url}/add/${id}`, {
@@ -71,7 +48,7 @@ console.log(`Adding item with ID: ${id}`);
   .catch(error => console.error('Unable to add item.', error));
 }
 
-function subtractNumber(id)
+function subtractNumber(id) //function to call put function to subtract a rock count to an existing rock
 {
 console.log(`Subtracting item with ID: ${id}`);
   fetch(`${url}/remove/${id}`, {
@@ -81,13 +58,13 @@ console.log(`Subtracting item with ID: ${id}`);
   .catch(error => console.error('Unable to subtract item.', error));
 }
 
-function _displayCount(itemCount) {
+function _displayCount(itemCount) { //displays rock count in html
   const name = (itemCount === 1) ? 'rock type' : 'rock types';
 
   document.getElementById('counter').innerText = `${itemCount} ${name}`;
 }
 
-function _displayItems(data) {
+function _displayItems(data) { //displays rock data in html
     console.log('Displaying items:', data);
   const tBody = document.getElementById('rockbody');
   tBody.innerHTML = '';
